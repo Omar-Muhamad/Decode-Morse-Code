@@ -41,16 +41,10 @@ MORSE_LETTERS = {
 def decode_char(character)
   MORSE_LETTERS[character].upcase
 end
-decode_char('.-')
+# decode_char('.-')
 def decode_word(word)
   str = ''
   word.split.map { |character| str.concat(decode_char(character)) }.join
   str
 end
-decode_word('-- -.--')
-def decode_sentence(sentence)
-  arr = []
-  sentence.split('   ').map { |word| arr.push(decode_word(word)) }
-  arr.join(' ')
-end
-decode_sentence('-- -.--   -. .- -- .')
+# decode_word('-- -.--')
