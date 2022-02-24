@@ -39,7 +39,11 @@ MORSE_LETTERS = {
 }.freeze
 
 def decode_char(character)
-  puts MORSE_LETTERS[character]
+  print MORSE_LETTERS[character]
 end
 
-decode_char('---..')
+def decode_word(word)
+  print word.split.map { |character| decode_char(character) }.join
+end
+
+decode_word("-- -.--")
