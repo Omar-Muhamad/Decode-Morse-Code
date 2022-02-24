@@ -41,10 +41,25 @@ MORSE_LETTERS = {
 def decode_char(character)
   MORSE_LETTERS[character].upcase
 end
-# decode_char('.-')
+puts decode_char('.-')
+
 def decode_word(word)
   str = ''
   word.split.map { |character| str.concat(decode_char(character)) }.join
   str
 end
-# decode_word('-- -.--')
+puts decode_word('-- -.--')
+
+# Decode hole phrase
+def decode_morse(phrase)
+  result = phrase.split('   ').map do |word|
+    word.split.map do |char|
+      MORSE_LETTERS[char]
+    end.join
+  end
+  puts result.join(' ').upcase
+end
+
+decode_morse('-- -.--   -. .- -- .')
+
+decode_morse('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-. / .-. ..- -... .. . ...')
